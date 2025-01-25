@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<%- include('../layout/HeadSection') -%>
+
+  <body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+      <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+      data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+      <!-- ============================================================== -->
+      <!-- Topbar header - style you can find in pages.scss -->
+      <!-- ============================================================== -->
+
+      <%- include('../layout/Header') -%>
+        <%- include('../layout/Sidebar') -%>
+
+        
+          <div class="page-wrapper">
+           
+            <div class="page-breadcrumb">
+              <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                  <h4 class="page-title">Dashboard-2</h4>
+                  <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                          Library
+                        </li>
+                      </ol>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Column -->
+                <div class="col-md-6 col-lg-3">
+                  <div class="card card-hover">
+                    <div class="box bg-cyan text-center">
+                      <h1 class="font-light text-white">
+                        <i class="mdi mdi-view-dashboard"></i>
+                      </h1>
+                      <h6 class="text-white">Dashboard</h6>
+                    </div>
+                  </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-3">
+                  <div class="card card-hover">
+                    <div class="box bg-success text-center">
+                      <h1 class="font-light text-white">
+                        <i class="mdi mdi-chart-areaspline"></i>
+                      </h1>
+                      <h6 class="text-white">Charts</h6>
+                    </div>
+                  </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-3">
+                  <div class="card card-hover">
+                    <div class="box bg-warning text-center">
+                      <h1 class="font-light text-white">
+                        <i class="mdi mdi-collage"></i>
+                      </h1>
+                      <h6 class="text-white">Widgets</h6>
+                    </div>
+                  </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-3">
+                  <div class="card card-hover">
+                    <div class="box bg-danger text-center">
+                      <h1 class="font-light text-white">
+                        <i class="mdi mdi-border-outside"></i>
+                      </h1>
+                      <h6 class="text-white">Tables</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- END MODAL -->
+              <div class="container-fluid">
+
+                <!-- Sales Cards  -->
+                <div class="container">
+
+                  <div class="row">
+                    <form class="form-horizontal" method="post" action="/api/blogmern" enctype="multipart/form-data">
+                      <div class="card-body">
+                        <h4 class="card-title">Add Blog</h4>
+                        <div class="form-group row">
+                          <label for="fname" class="col-sm-3 text-end control-label col-form-label">Blog Name</label>
+                          <div class="col-sm-9 my-3">
+                            <input type="text" class="form-control" name="blog_name" placeholder="Blog Name Here" />
+                          </div>
+                          <label for="fname" class="col-sm-3 text-end control-label col-form-label">Blog Price</label>
+                          <div class="col-sm-9 my-3">
+                            <input type="text" class="form-control" name="blog_price" placeholder="Blog Price Here" />
+                          </div>
+                          <label for="fname" class="col-sm-3 text-end control-label col-form-label">Blog Desc</label>
+                          <div class="col-sm-9 my-3">
+                            <textarea name="blog_desc" class="form-control" placeholder="Blog Description Here"
+                              id=""></textarea>
+                          </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                          <label for="admin_profile"
+                              class="col-sm-3 text-end control-label col-form-label">Blog
+                              Profile:</label>
+                          <div class="col-sm-9">
+                              <input type="file"  name="blog_profile"
+                                  class="form-control" />
+                          </div>
+                      </div>
+
+                    
+                        <div class="border-top">
+                          <div class="card-body">
+                            <button class="btn btn-primary">Submit</button>
+                          </div>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+           
+            <footer class="footer text-center">
+              All Rights Reserved by Matrix-admin. Designed and Developed by
+              <a href="https://www.wrappixel.com">WrapPixel</a>.
+            </footer>
+            
+          </div>
+         
+    </div>
+   
+    <%- include('../layout/ScriptLinks') -%>
+
+  </body>
+
+</html>
