@@ -1,15 +1,15 @@
 const blog = require('../Model/BlogModel');
 
 exports.store = async (req, res) => {
-    const { blog_name, blog_price, blog_desc } = req.body
+    const { blog_name, blog_price, blog_desc, blog_cat } = req.body
 
     try {
-        if (blog_name == "" || blog_price == "" || blog_desc == "") {
+        if (blog_name == "" || blog_price == "" || blog_desc == "" || blog_cat == "") {
             res.json("all fields are required!!")
         } else {
             // console.log(req.body);
             console.log(req.file.filename)
-            const blogs = await blog.create({ blog_name, blog_price, blog_desc, blog_profile: req.file.filename })
+            const blogs = await blog.create({ blog_name, blog_price, blog_desc,blog_cat, blog_profile: req.file.filename })
 
             if (blogs) {
                 // res.json("inserted✅")
@@ -35,7 +35,7 @@ exports.trash = async (req, res) => {
 exports.edit = async (req, res) => {
     try {
         const { id } = req.params
-        const { blog_name, blog_desc, blog_price } = req.body
+        const { blog_name, blog_desc, blog_price,blog_cat } = req.body
 
         var img = ""
         if (req.file) {
@@ -48,7 +48,7 @@ exports.edit = async (req, res) => {
             {
                 _id: id
             },
-            { blog_name, blog_price, blog_desc, blog_profile: img }
+            { blog_name, blog_price, blog_desc,blog_cat, blog_profile: img }
         )
 
         res.redirect('/view')

@@ -25,9 +25,9 @@
       <%- include('../layout/Header') -%>
         <%- include('../layout/Sidebar') -%>
 
-        
+
           <div class="page-wrapper">
-           
+
             <div class="page-breadcrumb">
               <div class="row">
                 <div class="col-12 d-flex no-block align-items-center">
@@ -37,7 +37,7 @@
                       <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                          Library
+                          Add
                         </li>
                       </ol>
                     </nav>
@@ -45,7 +45,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="container-fluid">
               <div class="row">
                 <!-- Column -->
@@ -103,7 +103,7 @@
                   <div class="row">
                     <form class="form-horizontal" method="post" action="/api/blogmern" enctype="multipart/form-data">
                       <div class="card-body">
-                        <h4 class="card-title">Add Blog</h4>
+                        <h4 class="card-title">Add </h4>
                         <div class="form-group row">
                           <label for="fname" class="col-sm-3 text-end control-label col-form-label">Blog Name</label>
                           <div class="col-sm-9 my-3">
@@ -118,18 +118,29 @@
                             <textarea name="blog_desc" class="form-control" placeholder="Blog Description Here"
                               id=""></textarea>
                           </div>
-                        </div>
-                        <div class="form-group row mb-4">
-                          <label for="admin_profile"
-                              class="col-sm-3 text-end control-label col-form-label">Blog
-                              Profile:</label>
-                          <div class="col-sm-9">
-                              <input type="file"  name="blog_profile"
-                                  class="form-control" />
+                          <label for="fname" class="col-sm-3 text-end control-label col-form-label">Blog
+                            Category</label>
+                          <div class="col-md-9">
+                            <select class="select2 form-select shadow-none" name="blog_cat" style="width: 100%; height: 36px">
+                              <option>Select</option>
+                              <option>Technology</option>
+                              <option>lifestyle</option>
+                              <option>Education</option>
+                              <option>Personal Blogs</option>
+                            </select>
+                                      
                           </div>
-                      </div>
 
-                    
+                          <div class="form-group row mb-4">
+                            <label for="admin_profile" class="col-sm-3 text-end control-label col-form-label">Blog
+                              Profile:</label>
+                            <div class="col-sm-9">
+                              <input type="file" name="blog_profile" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+
+
                         <div class="border-top">
                           <div class="card-body">
                             <button class="btn btn-primary">Submit</button>
@@ -139,18 +150,18 @@
                   </div>
                 </div>
               </div>
-              
+
             </div>
-           
+
             <footer class="footer text-center">
               All Rights Reserved by Matrix-admin. Designed and Developed by
               <a href="https://www.wrappixel.com">WrapPixel</a>.
             </footer>
-            
+
           </div>
-         
+
     </div>
-   
+
     <%- include('../layout/ScriptLinks') -%>
 
   </body>

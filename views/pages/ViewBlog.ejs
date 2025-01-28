@@ -37,7 +37,7 @@
                                             <ol class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="/">Home</a></li>
                                                 <li class="breadcrumb-item active" aria-current="page">
-                                                    Library
+                                                    View
                                                 </li>
                                             </ol>
                                         </nav>
@@ -107,6 +107,7 @@
                                                         <th scope="col">Blog Name</th>
                                                         <th scope="col">Blog Price</th>
                                                         <th scope="col">Blog Description</th>
+                                                        <th scope="col">Blog Category</th>
                                                         <th scope="col">Blog Image</th>
                                                         <th scope="col">Actions</th>
                                                     </tr>
@@ -126,14 +127,20 @@
                                                             <td>
                                                                 <%= ele.blog_desc %>
                                                             </td>
+                                                            <td>
+                                                                <%= ele.blog_cat %>
+                                                            </td>
                                                             <td> <img src="/public/<%= ele.blog_profile %>"
-                                                                alt="blog_profile" style="max-width: 100px; height: auto;" />
+                                                                    alt="blog_profile"
+                                                                    style="max-width: 100px; height: auto;" />
                                                             </td>
                                                             <td>
-                                                                <a href="/api/blogmern/<%= ele._id %>"><i class="fa-solid fa-trash text-danger"></i></a>
+                                                                <a href="/api/blogmern/<%= ele._id %>"><i
+                                                                        class="fa-solid fa-trash text-danger"></i></a>
                                                             </td>
                                                             <td>
-                                                                <a href="/UpdateBlog/?id=<%= ele._id %>"><i class="fa-solid fa-pencil text-warning"></i></a>
+                                                                <a href="/UpdateBlog/?id=<%= ele._id %>"><i
+                                                                        class="fa-solid fa-pencil text-warning"></i></a>
                                                             </td>
                                                         </tr>
                                                         <% }) %>
