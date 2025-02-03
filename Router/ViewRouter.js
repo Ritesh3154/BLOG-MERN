@@ -3,20 +3,21 @@ const blog = require('../Model/BlogModel')
 const { matchLogin } = require('../utils/LoginMiddleware')
 
 const router = require('express').Router()
-router.get('/', (req, res) => {
-    // res.render('pages/index')
-    matchLogin(req, res, 'pages/index')
+
+router.get('/', matchLogin, (req, res) => {
+    res.render('pages/index')
+    // matchLogin(req, res, 'pages/index')
 })
-router.get('/add', (req, res) => {
-    // res.render('pages/Addblog')
-    matchLogin(req, res, 'pages/Addblog')
+router.get('/add', matchLogin, (req, res) => {
+    res.render('pages/Addblog')
+    // matchLogin(req, res, 'pages/Addblog')
 })
-router.get('/view', async (req, res) => {
+router.get('/view', matchLogin, async (req, res) => {
     const blogss = await blog.find()
     console.log(blogss)
     res.render('pages/ViewBlog', { blogss })
 })
-router.get('/UpdateBlog', async (req, res) => {
+router.get('/UpdateBlog', matchLogin, async (req, res) => {
     const { id } = req.query
     const blogss = await blog.findById(id)
     console.log(blogss)
@@ -26,26 +27,29 @@ router.get('/UpdateBlog', async (req, res) => {
 
 
 router.get('/login', (req, res) => {
-    res.render('pages/login')
+    res.render('pages/login', { message: req.flash('info') })
 })
 router.get('/register', (req, res) => {
     res.render('pages/register')
 })
 router.get('/logout', (req, res) => {
-    res.clearCookie('admin')
-    res.redirect('/login')
+    req.logout(function (err) {
+        if (err) { return next(err); }
+        res.redirect('/login');
+    });
 })
 router.get('/MyProfile', async (req, res) => {
 
-    const cookieData = req.cookies.admin
-    console.log(cookieData)
-    console.log(cookieData.email)
-
-    const email = cookieData.email
+    const email = req?.user?.email
     const singleAdmin = await Admin.findOne({ email })
 
     // const admin = req.cookies.admin
     res.render('pages/MyProfile', { admin: singleAdmin })
 })
+router.get('/ChangePassword', (req, res) => {
+    const email = req?.user?.email
+    res.render('pages/ChangePassword', { email })
+})
+
 
 module.exports = router

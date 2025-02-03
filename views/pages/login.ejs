@@ -55,6 +55,12 @@
             <span class="db"><img src="../assets/images/logo.png" alt="logo" /></span>
           </div>
           <!-- Form -->
+          <% if( message ){%>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <%= message[0] %>
+            </div>
+            <%}%>
+
           <form class="form-horizontal mt-3" id="loginform" action="/api/blogadmin/login" method="post">
             <div class="row pb-4">
               <div class="col-12">
@@ -79,7 +85,7 @@
             <div>
               <button class="btn btn-success text-white w-100 mb-5">Login</button>
             </div>
-            <!-- <div class="row border-top border-secondary">
+            <div class="row border-top border-secondary">
                 <div class="col-12">
                   <div class="form-group">
                     <div class="pt-3">
@@ -99,10 +105,10 @@
                     </div>
                   </div>
                 </div>
-              </div> -->
+              </div>
           </form>
         </div>
-        <!-- <div id="recoverform">
+        <div id="recoverform">
             <div class="text-center">
               <span class="text-white"
                 >Enter your e-mail address below and we will send you
@@ -110,7 +116,7 @@
               >
             </div>
             <div class="row mt-3">
-              <form class="col-12" action="index.html">
+              <form class="col-12" method="post" action="api/blogadmin/forgotpassword">
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span
@@ -121,6 +127,7 @@
                   </div>
                   <input
                     type="text"
+                    name="email"
                     class="form-control form-control-lg"
                     placeholder="Email Address"
                     aria-label="Username"
@@ -138,8 +145,6 @@
                     >
                     <button
                       class="btn btn-info float-end"
-                      type="button"
-                      name="action"
                     >
                       Recover
                     </button>
@@ -147,7 +152,7 @@
                 </div>
               </form>
             </div>
-          </div> -->
+          </div>
       </div>
     </div>
     <!-- ============================================================== -->
